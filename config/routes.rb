@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   resource  :contacts, only: [:new, :create], path_names: {:new => ''}
   
   #get '/terms', to: :show, controller: 'terms'
-  get 'terms', to: 'terms#show'
-  get 'about', to: 'about#show'
+  # get 'terms', to: 'terms#show'
+  # get 'about', to: 'about#show'
+
+  get 'terms' => 'pages#terms'
+  get 'about' => 'pages#about'
+
   #get 'about', to: 'show', controller: 'about'
  
   resources :articles, path_names: {:create => 'home/index', :update => 'home#index'}
