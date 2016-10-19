@@ -11,10 +11,14 @@
 	  				<p align="left">Added at <%= post['create_date'] %> by 
 	  				<cite><%= post['author'] ? post['author'] : 'guest' %></cite></p>
 	  			</dt>
-	  			<dd><a style="margin: 10px" href="/articles/<%=post['id']%>/edit">Edit</a></dd>
+	  			<!-- <dd><a style="margin: 10px" href="/articles/<%=post['id']%>/edit">Edit</a><%= link_to 'Show', article_path(post) %></dd> -->
+	  			<dd>
+	  				<%= link_to 'Show', article_path(post) %>
+	  				<%= link_to 'Edit', edit_article_path(post) %>	  				
+	  			</dd>
   			</dl>	
   		</footer>
   	</blockquote>
-  	<br>
+  	<hr>
 	<% end %>
 

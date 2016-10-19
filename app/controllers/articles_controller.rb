@@ -5,13 +5,10 @@ class ArticlesController < ApplicationController
   
   def update
     @article = Article.find(params[:id])
-    @article.title = params['article[title]']
-    @article.text = params['article[text]']
-    @article.author = params['article[author]']
-    if @article.valid? then
-      @article.save
+    if @article.update(_params()) then
+      #redirect_to :index
     else
-      render action: :new
+      render action: :edit
     end
   end
 
