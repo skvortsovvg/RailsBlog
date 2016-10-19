@@ -1,0 +1,20 @@
+<h2>Последние TOP 5 записи:</h2>
+<br>
+
+	<% @results.each do |post| %>
+	<blockquote>
+		<b><p style="font-family: 'Calibri'; font-size: 14pt"><%= post['title'] %></p></b>
+  		<p style="font-family: 'Calibri'; font-size: 12pt"><%= post['text'] %></p>
+  		<footer>
+  			<dl class="dl-horizontal"> 
+	  			<dt style="width: 350px"> 
+	  				<p align="left">Added at <%= post['create_date'] %> by 
+	  				<cite><%= post['author'] ? post['author'] : 'guest' %></cite></p>
+	  			</dt>
+	  			<dd><a style="margin: 10px" href="/articles/<%=post['id']%>/edit">Edit</a></dd>
+  			</dl>	
+  		</footer>
+  	</blockquote>
+  	<br>
+	<% end %>
+
