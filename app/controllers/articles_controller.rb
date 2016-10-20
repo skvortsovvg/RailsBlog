@@ -20,12 +20,19 @@ class ArticlesController < ApplicationController
     @article = Article.new(_params())
     if @article.valid? then
       @article.save
+      redirect_to '/'
     else
       render action: :new
     end
     #render(plain: params[:article].inspect)
   end
 
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    redirect_to '/'
+  end
+  
   private
 
   def _params()

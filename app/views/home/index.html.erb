@@ -8,13 +8,14 @@
   		<footer>
   			<dl class="dl-horizontal"> 
 	  			<dt style="width: 350px"> 
-	  				<p align="left">Added at <%= post['create_date'] %> by 
+	  				<p align="left">Added at <%= post['created_at'] %> by 
 	  				<cite><%= post['author'] ? post['author'] : 'guest' %></cite></p>
 	  			</dt>
 	  			<!-- <dd><a style="margin: 10px" href="/articles/<%=post['id']%>/edit">Edit</a><%= link_to 'Show', article_path(post) %></dd> -->
 	  			<dd>
-	  				<%= link_to 'Show', article_path(post) %>
-	  				<%= link_to 'Edit', edit_article_path(post) %>	  				
+	  				<%= link_to('Show', article_path(post)) %>
+	  				<%= link_to('Edit', edit_article_path(post)) %>	  				
+	  				<%= link_to('Delete', article_path(post), method: :delete)%>
 	  			</dd>
   			</dl>	
   		</footer>
