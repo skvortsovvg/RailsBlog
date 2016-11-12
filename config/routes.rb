@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   #get 'about', to: 'show', controller: 'about'
  
   resources :articles, path_names: {:create => 'home/index', :update => 'home#index'} do
-    resources :comments
+    resources :comments, only: [:create]
   end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

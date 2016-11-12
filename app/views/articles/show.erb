@@ -1,7 +1,28 @@
 <h1><%= @article.title %></h1>
+<blockquote>
+	<p><%= @article.text %></p>
+		<footer>
+			<dl class="dl-horizontal"> 
+  			<dt style="width: 300px"> 
+  				Added at <%= @article.created_at %> by 
+  				<cite><%= @article.author %></cite>
+  			</dt>
+ 		</dl>	
+	</footer>
+</blockquote>
 
-<p><%= @article.text %></p>
+<% if @article.comments.count > 0 %>
+	<h4>Comments:</h4>
+<% end %>
+<div style="margin-left: 50px">
+	<% @article.comments.each do |comment| %>
+			<p><%= comment['text'] %></p>
+			<p style="font-size: 75%; color: #999 "><%= comment['created_at'] %></p>
+			<br>
+	<% end %>
+</div>
 
+<h4>Add comment:</h4>
 <%= form_for([@article, @article.comments.new()]) do |f| %>
 	<p>
 		<%= f.label :author %><br>
